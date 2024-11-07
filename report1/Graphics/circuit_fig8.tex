@@ -1,0 +1,28 @@
+\begin{circuitikz}[american voltages, american currents, european resistors]
+    \draw
+    (0.2,0) [->,] to node [anchor=south] {$U_0$} (5.8,0);
+    \draw
+    (8.2,0) [->,] to node [anchor=south] {$U_0$} (13.8,0);
+    \draw
+    (0,0) node [anchor=east] {1} to [short, o-*] (0,2)
+    to [short] (0,3)
+    (0,4) to [short] (0,5)
+    to [R=$R_1$, -*] (3,5)
+    (3,5) to [R=$R_3$, -*, i=$I'_3$] (3,2)
+    to [R=$R_2$, i=$I'_2$] (0,2)
+    (3,5) to [V=$E$, i=$I'_5$] (6,5)
+    to [short] (6,2) 
+    to [R=$R_4$, i=$I'_4$] (3,2)
+    (6,2) to [short, *-o] (6,0) node [anchor=west] {3};
+    \draw
+    (8,0) node [anchor=east] {1} to [short, o-*] (8,2)
+    to [I=$I''_1$, l=J] (8,5)
+    to [R=$R_1$, -*] (11,5)
+    (11,5) to [R=$R_3$, -*, i=$I''_3$] (11,2)
+    to [R=$R_2$, i=$I''_2$] (8,2)
+    (11,5) to [short] (12,5)
+    (13,5) to [short] (14,5)
+    to [short] (14,2)
+    to [R=$R_4$, i=$I''_4$] (11,2)
+    (14,2) to [short, *-o] (14,0) node [anchor=west] {3};
+\end{circuitikz}

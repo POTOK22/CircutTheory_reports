@@ -1,0 +1,11 @@
+\begin{circuitikz}
+    \node[draw,minimum width=2cm,minimum height=2.4cm,anchor=south west] at (0,0){black box};
+    \draw
+    (1.8,2.2) node [anchor=east] {3} [short,o-] to (3,2.2);
+    \draw
+    (3,2.2) [rmeterwa, t=V, *-*] to (3,0.2);
+    \draw
+    (3,2.2) [rmeterwa, t=mA] to (5,2.2)
+    to [vR=$R_z$, invert] (5,0.2)
+    to [short,-o] (1.8, 0.2) node [anchor=east] {1};
+\end{circuitikz}

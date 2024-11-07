@@ -1,0 +1,224 @@
+\documentclass[]{scrartcl}
+
+\usepackage{labrep}
+
+%opening
+\title{Thevenin and Norton Theorem}
+\author{Grzegorz Potocki}
+\date{29 October 2023}
+
+\begin{document}
+	
+\input{title_tab.tex}
+
+\section{Introduction}
+
+Firstly, to understand the Th\`evenin's and Norton's theorems we should define what is a circuit component. Generally circuit components might be a part of a circuit or a branch ended with two terminals. There are two types of circuit components:
+\begin{itemize}
+    \item Passive - ones may store but not generate electrical power
+    \item Active - ones may generate electrical power
+\end{itemize}
+
+Th\`evenin's theorem - Any two-terminal linear active electrical network can be replaced at terminals A–B by an equivalent combination of a source voltage also called open-circuit voltage($U_o$) which is the open-circuit voltage between two marked terminals and an internal resistance($R_w$) connected in series with resistor with resistance ($R_z$) in branch which is analysed
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig}
+	\caption{Example of circuit with selected branch a-b and the Th\`evenin scheme for this circuit}
+	\label{fig:circuitfig_thevenin}
+\end{figure}
+
+\begin{align}
+I&=\frac{U_{0}}{R_{w}+R_{z}} & U_{ab}&=\frac{U_0 R_z}{R_w+R_z}
+\end{align}
+
+Any real voltage source with source voltage E and internal resistance $R_w$ can be replaced by real current source $I_{zr}=\frac{E}{R_w}$ parallel connected resistor with resistance $R_w=\frac{1}{G_w}$. \newline
+
+Norton theorem - Any two-terminal linear active electrical network can be replaced at terminals A–B by an equivalent combination of short-circuit current ($I_{zr}=\frac{U_0}{R_w}=I_z$) which is the short-circuit current between and an internal parallel resistor($R_w$) with conductance $G_w=\frac{1}{R_w}$ and resistor $R_z$ with conductance $G_z$.
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig6}
+	\caption{Example of circuit with selected branch a-b and the Norton scheme for this circuit}
+	\label{fig:circuitfig_norton}
+\end{figure}
+
+\begin{align}
+I&=I_{zr}\frac{G_{z}}{R_{w}+R_{z}} & U_{ab}&=\frac{I_{zr}}{G_w+G_z}
+\end{align}
+
+Current-voltage characteristic U=f(I) can be described as a relationship presented by a graph between current and corresponding voltage across it. Moreover the voltage and current can be determined experimentally by measuring them respectively using voltmeter and ammeter. Meters are connected to A-B terminals instead of resistor $R_z$.
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/function_fig.tex}
+	\caption{Current-voltage characteristic of two-terminal active linear network}
+	\label{fig:current-voltage characteristic}
+\end{figure}
+
+\section{The process of the exercise}
+
+\subsection{Determination of the voltage-current characteristics of a complex active bipolar}
+\subsubsection{Scheme}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig2} 
+	\caption{First circuit}
+	\label{fig:first_circuit}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig3}
+	\caption{Thevenin reference}
+	\label{fig:thevenin_reference}
+\end{figure}
+
+Data: E=6 V, I=0.1 A, $R_1=40\Omega$, $R_2=30\Omega$, $R_3=60\Omega$, $R_4=60\Omega$, $R_5=90\Omega$ $R_z=(0:2600)\Omega$
+
+\subsubsection{Measurement process}
+
+First part of exercise is to correctly connect the circuit according to the diagram in point 2.2.1.1a. Second part is to connect the measuring system to selected part of terminals 1-3 in the same way as it is in 2.2.1.1b. Third part is to carry out a measurement at different resistance values of $R_z$. Last part is to plot current-voltage characteristic, list results in a table and determine source voltage $U_0$, short-circuit current $I_z$ and internal resistance $R_w$. 
+
+\input{Tables/tab1}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/ct_cv_char_1.png}
+	\caption{Current-voltage characteristic}
+	\label{fig:current-voltage-char1}
+\end{figure}
+
+By using Ohm's law which is U=IR it is possible to calculate resistance. The internal resistance is $R=\frac{U}{I} = \frac{9}{0.146} = 61.64\Omega$.
+
+\input{Tables/tab4}
+
+\subsection{Determining with an ohmmeter the internal resistance $R_w$ of a complex active terminal block, ”seen” from a pair of terminals}
+
+\subsubsection{Measurement process}
+
+To determine the internal resistance $R_w$ with an ohmmeter the voltage and current sources have to disconnected from the circuit(for voltage sources there is short-circuit and for current sources there is open-circuit). Then it is possible to measure the resistance from the selected pair of terminals.
+
+\input{Tables/tab5}
+
+\subsection{Determination of the voltage-current characteristics for the equivalent double terminal according to Thevenin’s theorem}
+
+\subsubsection{Scheme}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig4}
+	\caption{Circuit replaced with voltage source and resistor in series}
+	\label{fig:thevenin-replaced}
+\end{figure}
+
+\subsubsection{Measurement process}
+
+The aim of task is to connect the circuit as show in point 2.2.3.1 and perform voltage and current measurements at different resistances of $R_z$. Then list measurements in the table and plot current-voltage characteristics.
+
+\input{Tables/tab2}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/ct_cv_char_2.png}
+	\caption{Current-voltage characteristic}
+	\label{fig:current-voltage-char2}
+\end{figure}
+
+\subsection{Determining the voltage-current characteristics for the equivalent two-terminal block according to Norton’s theorem}
+
+\subsubsection{Scheme}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig5}
+	\caption{Circuit replaced with current source and resistor in parallel}
+	\label{fig:nortion-replaced}
+\end{figure}
+
+\subsubsection{Measurement process}
+
+The aim of task is to connect the circuit as show in point 2.2.4.1 and perform voltage and current measurements at different resistances of $R_z$. Then list measurements in the table and plot current-voltage characteristics.
+
+\input{Tables/tab3}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/ct_cv_char_2.png}
+	\caption{Current-voltage characteristic}
+	\label{fig:current-voltage char}
+\end{figure}
+
+\section{Calculations}
+
+\subsection{Determine the source voltage}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig7}
+	\caption{First circuit with source voltage $U_0$}
+	\label{fig:first_circuit_volatage_U0}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig8}
+	\caption{First circuit modified respectively to superposition rules}
+	\label{fig:superposition_reference}
+\end{figure}
+
+\begin{equation}
+\begin{aligned}
+    I'_1&=I'_2=0.1A \\
+    I'_4&=I'_4\frac{R_3}{R_3=R_4}=0.1*\frac{60}{60+60}=\frac{1}{10}*\frac{1}{2}=\frac{1}{20}=0.05A \\ \\
+    I''_1&=I''_2=0A \\
+    I''_4&=I''_5=\frac{E}{R_3+R_4}=\frac{6}{60+60}=0.05A \\ \\
+    I_2&=I'_2+I''_2=0.1=0=0.1A \\
+    I_4&=I'_4=I''_4=0.05+0.05=0.1A \\
+    U_0&=R_2I_2+R_4I_4=30*0.1+60*0.1=9V
+\end{aligned}
+\end{equation}
+
+\subsection{Determine the short-circuit current}
+
+\begin{equation}
+\begin{aligned}
+    I'_1&=I'_z=0.1A \\ \\
+    R_{24}&=\frac{R_2R_4}{R_2+R_4}=\frac{30*60}{30+60}=20\Omega \\
+    R_z&=R_3+R_{24}=60+20=80\Omega \\
+    I''_5&=\frac{E}{R_z}=\frac{6}{80}=0.075A \\
+    I''_4&=I''_5\frac{R_{24}}{R_4}=0.075*\frac{20}{60}=0.025A \\
+    I''_z&=I''_5-I''_4=0.075-0.025=0.05A \\ \\
+    I_z&=I'_z+I''_z=0.05+0.1=0.15A=0.150mA
+\end{aligned}    
+\end{equation}
+
+\subsection{Determine the internal resistance}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig9}
+	\caption{First circuit modified to calculate internal resistance}
+	\label{fig:internal-resistance-reference}
+\end{figure}
+
+\begin{equation}
+\begin{aligned}
+    R_{34}=\frac{R_3R_4}{R_3+R_4}=\frac{2400}{120}=20\Omega \\
+    R_w=R_2+R_{34}=30+20=50\Omega
+\end{aligned}
+\end{equation}
+
+\section{Conclusions and final comments}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/ct_cv_char_comp.png}
+	\caption{Current-voltage characteristic comparison}
+	\label{fig:current-voltage-char4}
+\end{figure}
+
+Plots of Th\`evenin’s and Norton’s current-voltage characteristics are almost the same. Slight differences between values may be result of inaccuracy of measurement devices and wires. Nevertheless, results of the experiment confirm the correctness of Thevenin’s and Norton’s Methods that concern relation between current and voltage and determining their values.
+
+\end{document}

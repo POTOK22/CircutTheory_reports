@@ -1,0 +1,25 @@
+\begin{circuitikz}[american voltages]
+    \draw
+    (0,0) to [V=$E_1$] (0,2)
+    to [R=$R_1$, -*] (0,5)
+    to [R=$R_2$] (3,5)
+    to [short] (4,5)
+    (4,5) to [R=$R_3$, *-] (4,2)
+    (4,2) to [V=$E_2$, *-] (2,3.5)
+    (2,3.5) to [R=$R_6$] (0,5)
+    (4,2) to [R=$R_4$, -*] (4,0)
+    (4,5) to [short] (6,5)
+    (6,5) node [anchor=south] {a} to [R=$R_z$, o-] (6,1)
+    (6,1) to [short] (6,0)
+    (6,0) node [anchor=north] {b} to [short, o-] (4,0)
+    to [R=$R_5$] (0,0);
+    \draw
+    (9,0) to [V=$U_o$] (9,2.5)
+    to [R=$R_w$] (9,5)
+    to [short, -o] (11,5) node [anchor=south] {a}
+    to [R=$R_z$] (11,2.5)
+    to [short, -o] (11,0) node [anchor=north] {b} 
+    to [short] (9,0);
+    \draw
+    (11.5,0) [->, bend right] to node [anchor=west] {$U_{ab}$} (11.5,5);
+\end{circuitikz}

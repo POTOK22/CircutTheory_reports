@@ -1,0 +1,195 @@
+\documentclass[]{scrartcl}
+
+\usepackage{labrep}
+
+%opening
+\title{LC filters frequency analysis}
+\author{Grzegorz Potocki}
+\date{14 January 2024}
+
+\begin{document}
+	
+\input{title_tab.tex}
+
+\section{Introduction}
+
+\begin{flushleft}
+    Filter is a circuit which task is to pass selected frequency band and attenuate signals out of the borders of frequency band. There are different types of filters designed to achieve specific objectives, and they can be broadly categorized into several types, but two most basic are low- and high- pass filters.    
+\end{flushleft}
+
+\begin{flushleft}
+    Low-pass filter has a frequency band from 0 to $\omega_0$.
+\end{flushleft}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig3}
+	\caption{Type $\Pi$ low-pass filter example}
+	\label{fig:circuitfig_series}
+\end{figure}
+
+\begin{flushleft}
+    High-pass filter has a frequency band from $\omega_0$ to infinity.
+\end{flushleft}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig4}
+	\caption{T-type high-pass filter example}
+	\label{fig:circuitfig_series}
+\end{figure}
+
+\begin{flushleft}
+    For both kinds of filters there is the attenuation coefficient which is denoted as $a$. The formula for it is:
+\end{flushleft}
+
+\begin{equation}
+    a=\ln{\frac{U_1}{U_2}} \text{ [Np]}
+\end{equation}
+
+\begin{flushleft}
+    The value is in [Np] which stands for neper. The attenuation of 1 neper stands for decreasing the voltage or current $e$ times. It is possible to transform the result form nepers to decibels(the units from SI metric system) by using this formulas: 
+\end{flushleft}
+
+\begin{equation}
+    \frac{U_1}{U_2}=e^a \text{[-]}
+\end{equation}
+
+\begin{equation}
+    a=20\log{\frac{U_1}{U_2}} \text{dB}
+\end{equation}
+
+\begin{flushleft}
+    For low-pass $\Pi$ type filter the formula to calculate the attenuation coefficient $a$ is:  
+\end{flushleft}
+
+\begin{equation}
+    a=\text{arccos(-A)}=\text{arccosh}(-1+\omega^2\frac{LC}{2})
+\end{equation}
+
+\begin{flushleft}
+    To calculate the attenuation coefficient for high-pass T-type filters there is a formula: 
+\end{flushleft}
+
+\begin{equation}
+    a=\text{arccos(-A)}=\text{arccosh}(-1+\frac{1}{2\omega^2LC})
+\end{equation}
+
+\section{The process of the exercise}
+
+\subsection{Determination of the frequency characteristics and the attenuation coefficient a of the type $\Pi$ low-pass filter}
+
+\subsubsection{Scheme}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig2}
+	\caption{Type $\Pi$ low-pass filter circuit}
+	\label{fig:circuitfig_series}
+\end{figure}
+
+Data: $U_1$=5[V], L=90[mH], C/2=103,2[nF], R=k=660[$\Omega$], R=1000[$\Omega$] 
+
+\subsubsection{Measurement process}
+
+Connect the system shown in point 9.2.1.1. Measure the voltage U2 (keeping the voltage U1 at the set level: 5 V), changing the generator frequency (in the range 50 Hz - 10 kHz) so that the measuring points (voltage U2) are evenly distributed (pay special attention to the resonance occurring in the system). Perform the measurements with two load resistances and write the results in Table 9.1. For each measuring point, calculate the U1/U2 ratio and the value of the damping coefficient a. Provide the results of the calculations in Table 9.1.
+
+\input{Tables/tab1}
+
+\subsection{Determination of the frequency characteristics of the damping coefficient a of the T-type high-pass filter}
+
+\subsubsection{Scheme}
+
+\begin{figure}[H]
+	\centering
+	\input{Graphics/circuit_fig}
+	\caption{T-Type high-pass filter circuit}
+	\label{fig:circuitfig_parallel}
+\end{figure}
+
+Data: $U_1$=5[V], L=90[mH], 2C=103,2[mF], R=k=1320[$\Omega$], R=2000[$\Omega$]
+
+\subsubsection{Measurement process}
+
+Connect the system shown in point 9.2.2.1. Measure the voltage U2 (keeping the voltage U1 at the set level: 5V), changing the generator frequency (in the range 50Hz - 10 kHz) so that the measuring points (voltage U2) are evenly distributed (pay special attention to the resonance occurring in the system). Perform the measurements with two load resistances and write the results in Table 9.2. For each measuring point, calculate the U1/U2 ratio and the value of the damping coefficient a. Provide the results of the calculations in Table 9.2..
+
+\input{Tables/tab2}
+
+\section{Conclusions and final comments}
+
+\subsubsection{Draw the frequency characteristics of the filter attenuation coefficient for both load resistances}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/low_filter_660.png}
+	\caption{Frequency characteristic graph for $\Pi$ type low-pass filter with R=660 [$\Omega$]}
+	\label{fig:R=660 char}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/low_filter_1000.png}
+	\caption{Frequency characteristic graph for $\Pi$ type low-pass filter with R=1000 [$\Omega$]}
+	\label{fig:R=1000 char}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/high_filter_1320.png}
+	\caption{Frequency characteristic graph for T-type high-pass filter with R=1320 [$\Omega$]}
+	\label{fig:R=1320 char}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/high_filter_2000.png}
+	\caption{Frequency characteristic graph for T-type high-pass filter with R=2000 [$\Omega$]}
+	\label{fig:R=2000 char}
+\end{figure}
+
+\subsubsection{Plot the frequency characteristics of the filter attenuation coefficient at characteristic load, obtained from theoretical calculations}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/cal_low.png}
+	\caption{Frequency characteristic for $\Pi$ type low-pass filter based on theoretical calculations}
+	\label{fig:low-cal char}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/cal_high.png}
+	\caption{Frequency characteristic for T-type high-pass filter based on theoretical calculations}
+	\label{fig:high-cal char}
+\end{figure}
+
+\subsubsection{Compare the frequency characteristics of the damping coefficient obtained from the measurements and theoretical calculations}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/low_comp.png}
+	\caption{Frequency characteristic for $\Pi$ type low-pass filter based on theoretical calculations}
+	\label{fig:low-cal char-comp}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Pictures/high_comp.png}
+	\caption{Frequency characteristic for T-type high-pass filter based on theoretical calculations}
+	\label{fig:high-cal char-comp}
+\end{figure}
+
+\subsubsection{Present conclusions and comments regarding the tested filters (performed measurements, calculation results and drawn characteristics)}
+
+\begin{flushleft}
+    In conclusion, the analysis of LC filters and their frequency response is pivotal in understanding and designing effective signal processing systems. LC filters, utilizing inductors (L) and capacitors (C), exhibit distinct characteristics in terms of their ability to pass or block specific frequencies. Moreover when the resistance was increased to 1000 $\Omega$, there were a cases when
+    the $\frac{U_1}{U_2}$ ratio was less than 1. For both the T-type and $\Pi$-type filters, this had place in the band from approximately 1000 to 2000 Hz.
+\end{flushleft}
+
+\begin{flushleft}
+    Therefore, when analyzing the characteristics of the attenuation coefficient a as a function of frequency f for these circuits, attention should be paid to the occurrence of negative values of the attenuation coefficient a in the mentioned frequency band. A negative value of this coefficient indicates the occurrence of amplification
+    output signal (in the area of resonant frequencies).
+\end{flushleft}
+
+\end{document}

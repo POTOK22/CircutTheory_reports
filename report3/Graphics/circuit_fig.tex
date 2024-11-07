@@ -1,0 +1,26 @@
+\begin{circuitikz}[american voltages, american currents, european resistors]
+    \node[draw,minimum width=1.2cm,minimum height=1.2cm,anchor=south west] at (0,0){};
+    \draw
+    (-1, 1) [short, o-*] to (0, 1) node [anchor=west] {G};
+    \draw
+    (-1, 0.2) [short, o-*] to (0, 0.2) node [anchor=west] {f};
+    \draw
+    (1.2, 0.2) [short] to (1.4, -0.2) 
+    (1.2, -0.2) to [short] (1.6, -0.2);
+    \draw
+    (1.2, 1) [short, *-] to (1.8, 1);
+    \draw
+    (1.8, 1) [short] to (1.8, 1.8)
+    to [short] (3, 1.8)
+    to [C=$2C$] (5.5, 1.8)
+    to [C=$2C$] (9, 1.8)
+    to [short] (11, 1.8)
+    to [rmeterwa, t=$V_{L2}$] (11, -0.6)
+    to [short] (1.8, -0.6)
+    to [short] (1.8, 0.2);
+    \draw
+    (1.8, 0.2) [short, -*] to (1.2, 0.2)
+    (9, 1.8) to [R=$R$,*-*] (9, -0.6)
+    (5.5, 1.8) to [L=$L$, *-*] (5.5, -0.6)
+    (3, 1.8) to [rmeterwa, t=$V_{L1}$, *-*] (3, -0.6);
+\end{circuitikz}
